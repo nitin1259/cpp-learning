@@ -277,5 +277,40 @@ int main (){
 
     cout << "Total Price: " << totalPrice << endl;
 
+
+
+    // guess the number assignment
+
+    int guessNum;
+    int totalGuess = 0;
+
+    srand(time(nullptr));
+
+    int randomNum = rand()%100 +1;
+    cout << "random no." << randomNum << endl;
+    
+
+    while(true){
+
+    cout << "Enter your guess ?" << endl;
+    cin >> guessNum;
+
+    totalGuess++;
+    if (guessNum <1 || guessNum >100){
+        cout << "Enter a valid guess b/w 1 - 100.";
+        continue;
+    }
+
+    if (guessNum == randomNum){
+        cout << "You gues the right number. Total guess count:" << totalGuess << endl;
+        break;
+    }else if (guessNum > randomNum){
+        cout << "Guess is higher !!" << endl;
+    }else{
+        cout << "Guess is lower !!" << endl;
+    }
+
+    }
+
     return 0;
 }
