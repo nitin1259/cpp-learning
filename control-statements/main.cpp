@@ -223,11 +223,59 @@ int main (){
 	}
 
 
-    
+    /**
+     * 
+     * 
+     * Assignments 
+     * 
+     * */
 
+    // Jam of the month club
 
+    char packInput;
+    int totalJam;
+    int totalPrice=0;
 
+    cout << "Package A:"<<endl;
+    cout << "$8/month, includes 2 gem/month, additional jam $5 each"<<endl;
+    cout << "Package B:"<<endl;
+    cout << "$12/month, includes 4 gem/month, additional jam $4 each"<<endl;
+    cout << "Package C:"<<endl;
+    cout << "$15/month, includes 6 gem/month, additional jam 3$ each"<<endl;
 
+    cout << "Please enter your subscribed package ?" <<endl;
+    cin >> packInput;
+    cout << "Please enter total jam consumed?" <<endl;
+    cin >> totalJam;
+
+    switch (packInput)
+    {
+    case 'A':
+        if(totalJam>2){
+            totalPrice = 8+ ((totalJam-2) *5);
+        }else{
+            totalPrice = 8;
+        }
+        break;
+    case 'B':
+        if(totalJam>4){
+            totalPrice = 12 + ((totalJam-4) *4);
+        }else{
+            totalPrice = 12;
+        }
+        break;
+    case 'C':
+        if(totalJam>6){
+            totalPrice = 15+ ((totalJam-6) *3);
+        }else{
+            totalPrice = 15;
+        }
+        break;
+    default:
+        cout << "Invalid input for opt package, try again" << endl;
+    }
+
+    cout << "Total Price: " << totalPrice << endl;
 
     return 0;
 }
