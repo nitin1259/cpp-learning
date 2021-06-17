@@ -4,12 +4,16 @@
 #include <stdexcept>
 #include "Person.h"
 #include "Dog.h"
+#include "AngryCatException.h"
 
 using namespace std;
 
 // Re thwroing exception
 void processPositive(int num);
 void doSomething(int num);
+
+// custom exception
+void feedKitty(int numTreats);
 
 int main(){
     cout << "****** Exception Handling ******" << endl;
@@ -73,6 +77,27 @@ int main(){
     {
         std::cerr << e.what() << '\n';
     }
+
+
+    // Custom exception exaple
+
+    cout << "This is example of custome exception" << endl;
+    int treat;
+    cout << "Please enter the number of treats for cat ?" << endl;
+    cin >> treat;
+
+    try
+    {
+        feedKitty(treat);
+    }
+    catch(const AngryCatException& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    catch(const runtime_error& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
     
 
 
@@ -116,4 +141,19 @@ void doSomething(int num)
 		cout << "doSomething says the number is too big!" << endl;
 		throw; //rethrow 
 	}
+}
+
+void feedKitty(int numTreats){
+
+    if (numTreats < 3){
+        throw AngryCatException();
+    }
+
+    if (numTreats < 6 ){
+        cout << "Kitty is not happy with " << numTreats
+		<< " treats, but satisfied." << endl;
+    }
+
+    cout << "Kitty is happy with " << numTreats
+		<< " treats." << endl;
 }
