@@ -4,12 +4,15 @@
 #include "Rectangle.h"
 #include "BankAccount.h"
 #include "Pizza.h"
+#include "Circle.h"
 
 using namespace std;
 
 void printHouse(const House& theHouse); // const infront of data type make sure it should not be changed after calling by reference
 
 void printPizzaData(const Pizza& pizza);
+
+void printCircleData(const Circle& c);
 
 int main(){
     cout << " Classes and Objects " << endl;
@@ -78,6 +81,16 @@ int main(){
 	printPizzaData(mattsPizza);
 	printPizzaData(special);
 
+
+
+    // Circle operation
+
+    Circle circ1;
+	Circle circ2(5);
+
+	printCircleData(circ1);
+	printCircleData(circ2);
+
     return 0;
 }
 
@@ -97,5 +110,13 @@ void printPizzaData(const Pizza& pizza)
 	cout << "Toppings:" << endl;
 
 	pizza.printToppings();
+	cout << endl;
+}
+
+void printCircleData(const Circle& c)
+{
+	cout << "Circle with radius " << c.getRadius() << endl;
+	cout << "\tCircumference: " << c.circumference() << endl;
+	cout << "\tArea: " << c.area() << endl;
 	cout << endl;
 }
