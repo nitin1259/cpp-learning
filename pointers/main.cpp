@@ -1,5 +1,7 @@
 #include <iostream>
 #include "Dog.h"
+#include "Rectangle.h"
+#include "Circle.h"
 
 using namespace std;
 
@@ -11,6 +13,9 @@ void ncp2cd();
 void cp2cd();
 
 void noChange( const double* const mydouble );
+
+// circle project
+void printCircles(Circle** circleArray, int numCircles);
 
 int main(){
 
@@ -112,6 +117,59 @@ int main(){
 
     delete doublePtr;
 
+    // Rectangle assignment
+
+    const int MAX_SIZE = 3;
+    Rectangle* recArray[MAX_SIZE];
+
+    recArray[0] = new Rectangle(20, 30);
+    recArray[1] = new Rectangle(10, 15);
+    recArray[2] = new Rectangle(15, 20);
+
+
+    for ( Rectangle* rec: recArray){
+        cout << rec->area() << endl;
+    }
+
+    // now delete
+    for ( Rectangle* rec: recArray){
+        delete rec;
+    }
+
+
+
+
+    // Circle project
+
+    int howMany = 0;
+	int radius = 0;
+
+	cout << "How many circles would you like to make?" << endl;
+	cin >> howMany;
+
+	Circle** circles = new Circle* [howMany];
+
+	for (int i = 0; i < howMany; i++)
+	{
+		cout << "What radius for circle " << i << "?" << endl;
+		cin >> radius;
+		circles[i] = new Circle(radius);
+	}
+
+	cout << endl;
+
+	printCircles(circles, howMany);
+
+	//delete individual circles
+	for (int i = 0; i < howMany; i++)
+	{
+		delete circles[i];
+		circles[i] = nullptr;
+	}
+
+	delete[] circles;
+
+
     return 0;
 }
 
@@ -196,4 +254,17 @@ void noChange(const double* const mydouble){
 
     cout << "double pointer parameter passed: " << *mydouble << endl;
 
+}
+
+// circle project
+
+void printCircles(Circle** circleArray, int numCircles)
+{
+	for (int i = 0; i < numCircles; i++)
+	{
+		cout << "Circle " << i << endl;
+		cout << "\t" << circleArray[i]->circumference() << endl;
+		cout << "\t" << circleArray[i]->area() << endl;
+		cout << endl;
+	}
 }
