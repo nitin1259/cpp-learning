@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Animal.h"
 #include "Dog.h"
+#include "Cat.h"
 
 using namespace std;
 
@@ -88,6 +89,27 @@ int main(){
 		cout << "standing still!" << endl;
 	}
 
+
+
+    /**
+     * 
+     * 
+     * 
+     * Cat assignment
+     * 
+     * 
+     * */
+
+    Animal* catPtr = new Cat("Felix", 12);
+
+    cout << "Cat noise? " << catPtr->makeNoise() << endl;
+	cout << "Cat eating?" << catPtr->eat() << endl;
+
+	//((Cat*)catPtr)->chaseMouse(); //older style cast
+	(reinterpret_cast<Cat*>(catPtr))->chaseMouse();
+
+    // delete catPtr;
+	catPtr = nullptr;
 
     return 0;
 }
