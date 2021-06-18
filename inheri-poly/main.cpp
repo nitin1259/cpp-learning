@@ -50,9 +50,44 @@ int main(){
     Animal* polyDog = new Dog("Fido", 40.0, "Golden Retriver");
 
     cout << "Poly dog make noise ?: " << polyDog->makeNoise() << endl;
-
+    cout << "Poly dog says : " << polyDog->eat() << endl;
 
     // delete polyDog;
+
+
+    /**
+     * 
+     * 
+     * enums 
+     * 
+     * */
+
+    enum Direction { UP, DOWN, LEFT, RIGHT, STANDING };
+
+	Direction myDirection = STANDING;
+	cout << myDirection << endl;
+
+	if (myDirection == UP)
+	{
+		cout << "up!" << endl;
+	}
+	else if (myDirection == DOWN)
+	{
+		cout << "down!" << endl;
+	}
+	else if (myDirection == LEFT)
+	{
+		cout << "left!" << endl;
+	}
+	else if (myDirection == RIGHT)
+	{
+		cout << "right!" << endl;
+	}
+	else if (myDirection == STANDING)
+	{
+		cout << "standing still!" << endl;
+	}
+
 
     return 0;
 }

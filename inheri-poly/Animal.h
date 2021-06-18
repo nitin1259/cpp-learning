@@ -21,6 +21,8 @@ public:
     virtual string makeNoise() const =0 ; // pure virtual function - means no need to define in base class but needed defination in derived class.
     // pure virtual function makes this Animal class as ABSTRACT class means object of abstract class type "Animal" is not allowed: -- function "Animal::makeNoise" is a pure virtual function
 
+    // assignment - pure virtualfunction
+    virtual string eat()const =0;
 };
 
 

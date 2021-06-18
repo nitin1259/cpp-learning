@@ -20,3 +20,7 @@ string Dog::getBreed()const{
 
      cout << "hey! kitty kitty" << endl;
  }
+
+ string Dog::eat()const{
+     return "I am a pedegry lover!!!";
+ }

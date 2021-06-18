@@ -17,6 +17,8 @@ public:
     string getBreed()const;
     string makeNoise()const;
     void chaseCat()const;
+
+    string eat()const;
 };
 
 
