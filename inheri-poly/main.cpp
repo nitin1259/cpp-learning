@@ -7,9 +7,10 @@ using namespace std;
 int main(){
     cout << "********* Inheritance and polymorphism ************" << endl;
 
+/*
     // Animal;
 
-    Animal* animal = new Animal("cat", 23.5);
+    Animal* animal = new Animal("cat", 23.5); //object of abstract class type "Animal" is not allowed: -- function "Animal::makeNoise" is a pure virtual function
 
     cout << "animal Name: " << animal->getName() << endl;
     cout << "animal Weight: " << animal->getWeight() << endl;
@@ -18,11 +19,9 @@ int main(){
     delete animal;
 
     cout << endl;
-    /**
-     * 
-     * Dog derived from Animal base class
-     * 
-     * */
+ 
+    // * Dog derived from Animal base class
+
 
     Dog* myDog = new Dog("jackie", 33.6, "German shephard");
 
@@ -38,7 +37,7 @@ int main(){
     delete myDog;
 
     cout << endl;
-
+*/
 
     /**
      * 
@@ -53,7 +52,7 @@ int main(){
     cout << "Poly dog make noise ?: " << polyDog->makeNoise() << endl;
 
 
-    delete polyDog;
+    // delete polyDog;
 
     return 0;
 }
