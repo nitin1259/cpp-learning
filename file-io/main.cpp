@@ -3,6 +3,7 @@
 #include <iomanip>
 #include <vector>
 #include "Rectangle.h"
+#include "ItemFrequencies.h"
 
 using namespace std;
 
@@ -140,7 +141,34 @@ int main()
     outRecFile.close();
 
 
+/**
+ * 
+ * 
+ * // Shopping items frequency
+ * 
+ * 
+ * */
+    ItemFrequencies itemFrequencies;
+	ifstream inshopfile;
+	string itemName;
 
+	inshopfile.open("shopping.txt");
+
+	if (!inshopfile)
+	{
+		cout << "Error opening file... bailing out..." << endl;
+		return 1;
+	}
+
+	while (!inshopfile.eof())
+	{
+		inshopfile >> itemName;
+		itemFrequencies.addItem(itemName);
+	}
+
+	itemFrequencies.printFrequencies();
+
+	inshopfile.close();
 
 	return 0;
 }
