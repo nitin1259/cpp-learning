@@ -17,7 +17,7 @@ public:
     void setName(string name);
     double getWeight()const;
     void setWeight(double weight);
-    string makeNoise() const;
+    virtual string makeNoise() const; // by default the binding is static in c++ but for dynamic binding we need to say explicitly by virtual keyword
 };
 
 

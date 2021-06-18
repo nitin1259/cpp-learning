@@ -15,6 +15,8 @@ int main(){
     cout << "animal Weight: " << animal->getWeight() << endl;
     cout << "animal Noise: " << animal->makeNoise() << endl;
 
+    delete animal;
+
     cout << endl;
     /**
      * 
@@ -32,8 +34,26 @@ int main(){
     myDog->digHole();
     myDog->chaseCat();
 
+
+    delete myDog;
+
     cout << endl;
 
+
+    /**
+     * 
+     * 
+     * Polymorphism
+     * 
+     * 
+     * */
+
+    Animal* polyDog = new Dog("Fido", 40.0, "Golden Retriver");
+
+    cout << "Poly dog make noise ?: " << polyDog->makeNoise() << endl;
+
+
+    delete polyDog;
 
     return 0;
 }
