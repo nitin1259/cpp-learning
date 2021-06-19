@@ -1,11 +1,15 @@
 #include <iostream>
 #include <memory>
 
+#include "Car.h"
+#include "Rectangle.h"
+#include "RectangleHelper.h"
+
 
 using namespace std;
 
 
-
+void printData(Rectangle& rect);
 
 int main(){
     cout << "************ smart pointers, friend function, operator overloading ***********" << endl;
@@ -36,5 +40,46 @@ int main(){
 		cout << myArray[i] << endl;
 	}
 
+
+    // * car pointer
+
+    unique_ptr<Car> carPtr = make_unique<Car>("grey", 4);
+
+    cout << "Car color: " << carPtr->getColor() << endl;
+    cout << "Car doors: " << carPtr->getNumDoors() << endl;
+
+    cout << endl << endl;
+
+
+
+    // * frined function  breaks encapsulation
+    Rectangle rect(10, 25);
+
+    cout << "Rectangle area : " << rect.area()<< endl;
+
+    changeData(rect); // friendly function calling
+    cout << "Rectangle area after friendly function calling: " << rect.area()<< endl; 
+
+
+    RectangleHelper helper;
+    helper.modifyRectangle(rect);
+
+	cout << "after class friend, r1 area: " << rect.area() << endl;
+
+	cout << "printing data using friend:" << endl;
+	printData(rect);
+
     return 0;
+}
+
+void changeData(Rectangle& rect){
+
+    rect.length =100;
+    rect.width= 100;
+}
+
+void printData(Rectangle& rect)
+{
+	cout << "length: " << rect.length << endl;
+	cout << "width: " << rect.width << endl;
 }
