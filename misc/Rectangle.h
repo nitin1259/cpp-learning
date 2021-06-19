@@ -18,6 +18,12 @@ class Rectangle
 		double area() const;
 		double perimeter() const;
 
+        // operator oveloading 
+        bool operator==(const Rectangle& other) const;
+		bool operator!=(const Rectangle& other) const;
+		Rectangle operator+(const Rectangle& other) const;
+		void operator=(const Rectangle& other);
+
 	private:
 		double length;
 		double width;

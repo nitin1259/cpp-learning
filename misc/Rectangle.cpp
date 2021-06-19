@@ -42,3 +42,29 @@ double Rectangle::perimeter() const
 	return 2 * length + 2 * width;
 	//return 2 * (length + width)
 }
+
+
+//operators
+
+bool Rectangle::operator==(const Rectangle& other) const
+{
+	return length == other.length && width == other.width;
+}
+
+bool Rectangle::operator!=(const Rectangle& other) const
+{
+	return length != other.length || width != other.width;
+}
+
+Rectangle Rectangle::operator+(const Rectangle& other) const
+{
+	Rectangle newRect(length + other.length, width + other.width);
+
+	return newRect;
+}
+
+void Rectangle::operator=(const Rectangle& other)
+{
+	length = other.length;
+	width = other.width;
+}
