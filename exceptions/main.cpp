@@ -148,8 +148,7 @@ void feedKitty(int numTreats){
     if (numTreats < 3){
         throw AngryCatException();
     }
-
-    if (numTreats < 6 ){
+    else if (numTreats < 6 ){
         cout << "Kitty is not happy with " << numTreats
 		<< " treats, but satisfied." << endl;
     }
